@@ -1,0 +1,6 @@
+name = "ViewKit Test"
+bundle_id = "org.mochios.viewkit-test"
+version = "0.1.0"
+developer = "mochiOS"
+entry = "entry.elf"
+description = "ViewKit rendering test application for mochiOS"
