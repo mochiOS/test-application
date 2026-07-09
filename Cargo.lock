@@ -748,6 +748,8 @@ checksum = "522a13d1239f1c600ea0cb0c871d48a98986ba36d5802417fe37c177a1245324"
 [[package]]
 name = "mochi-user-syscall"
 version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0376e9ab8b688115c41562c6887b1d240f40919b20cf87ca7e9f6841982c940a"
 dependencies = [
  "mnu-abi",
 ]
@@ -1851,6 +1853,8 @@ checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
 [[package]]
 name = "viewkit"
 version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ef63dfe7c39554680d428453fca1b586c3fa445766478240a6d9dec6302edade"
 dependencies = [
  "cosmic-text",
  "image",
