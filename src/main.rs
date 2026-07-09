@@ -1,14 +1,17 @@
-use viewkit::app::{App, ViewContext, WindowOptions};
-use viewkit::components::{
-    Background, BorderStyle, HStack, Padding, Rectangle, RectangleColor, Spacer, VStack,
-};
-use viewkit::layout::{StackAlignment, StackGap, ViewExt};
-use viewkit::theme::Color;
-use viewkit::view::View;
+use viewkit::prelude::*;
 
-struct TestApp;
+struct BorderExample;
 
-impl App for TestApp {
+impl BorderExample {
+    fn card(label: &'static str, border: BorderStyle) -> Card<Padding<Text>> {
+        Card::new()
+            .shadow(ShadowStyle::None)
+            .border(border)
+            .content(Padding::symmetric(20.0, 16.0).content(Text::new(label)))
+    }
+}
+
+impl App for BorderExample {
     type Body = Box<dyn View + 'static>;
 
     fn new() -> Self {
@@ -16,74 +19,35 @@ impl App for TestApp {
     }
 
     fn window(&self) -> WindowOptions {
-        WindowOptions::new("ViewKit Test")
-            .size(360.0, 260.0)
-            .resizable(false)
+        WindowOptions::new("ViewKit Border Example")
+            .size(720.0, 520.0)
+            .resizable(true)
     }
 
-    fn body(&self, _context: &ViewContext) -> Self::Body {
+    fn body(&self, _context: &ViewContext) -> Box<dyn View + 'static> {
         Box::new(
-            Background::new()
-                .background(Rectangle::new().color(RectangleColor::Custom(Color::rgb(18, 24, 38))))
-                .content(
-                    Padding::all(24.0).content(
-                        Background::new()
-                            .background(
-                                Rectangle::new()
-                                    .color(RectangleColor::Custom(Color::rgb(245, 247, 251)))
-                                    .border(BorderStyle::custom(Color::rgb(15, 23, 42), 2.0)),
-                            )
-                            .content(
-                                VStack::new()
-                                    .alignment(StackAlignment::Stretch)
-                                    .gap(StackGap::None)
-                                    .child(
-                                        Rectangle::new()
-                                            .color(RectangleColor::Custom(Color::rgb(44, 96, 210)))
-                                            .height(42.0),
-                                    )
-                                    .child(
-                                        Padding::all(24.0).content(
-                                            HStack::new()
-                                                .alignment(StackAlignment::Start)
-                                                .gap(StackGap::Custom(18.0))
-                                                .child(
-                                                    Rectangle::new()
-                                                        .color(RectangleColor::Custom(Color::rgb(
-                                                            56, 189, 248,
-                                                        )))
-                                                        .frame(118.0, 92.0),
-                                                )
-                                                .child(
-                                                    VStack::new()
-                                                        .alignment(StackAlignment::Start)
-                                                        .gap(StackGap::Custom(14.0))
-                                                        .child(
-                                                            Rectangle::new()
-                                                                .color(RectangleColor::Custom(
-                                                                    Color::rgb(34, 197, 94),
-                                                                ))
-                                                                .frame(128.0, 42.0),
-                                                        )
-                                                        .child(
-                                                            Rectangle::new()
-                                                                .color(RectangleColor::Custom(
-                                                                    Color::rgb(249, 115, 22),
-                                                                ))
-                                                                .frame(92.0, 36.0),
-                                                        ),
-                                                )
-                                                .child(Spacer::new()),
-                                        ),
-                                    )
-                                    .child(Spacer::new()),
-                            ),
-                    ),
-                ),
+            VStack::new()
+                .gap(StackGap::Large)
+                .alignment(StackAlignment::Center)
+                .distribution(StackDistribution::Center)
+                .child(Self::card(
+                    "Default — Standard 1px",
+                    BorderStyle::standard(1.0),
+                ))
+                .child(Self::card("Strong — 1px", BorderStyle::strong(1.0)))
+                .child(Self::card(
+                    "Accent — 1px",
+                    BorderStyle::custom(Color::from_rgb_hex(0x5f6fff), 1.0),
+                ))
+                .child(Self::card(
+                    "Accent — 2px",
+                    BorderStyle::custom(Color::from_rgb_hex(0x5f6fff), 2.0),
+                ))
+                .child(Self::card("No border", BorderStyle::None)),
         )
     }
 }
 
-fn main() -> Result<(), viewkit::ViewKitError> {
-    viewkit::run::<TestApp>()
+fn main() -> Result<(), ViewKitError> {
+    viewkit::run::<BorderExample>()
 }

@@ -7,7 +7,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-viewkit = "1.0.0"
+viewkit = { path = "../../libraries/viewkit" }
 
 [[bin]]
 name = "test_app"
