@@ -3,11 +3,19 @@ use viewkit::prelude::*;
 struct BorderExample;
 
 impl BorderExample {
-    fn card(label: &'static str, border: BorderStyle) -> Card<Padding<Text>> {
+    fn card(label: &'static str, border: BorderStyle) -> StackChild {
         Card::new()
             .shadow(ShadowStyle::None)
             .border(border)
-            .content(Padding::symmetric(20.0, 16.0).content(Text::new(label)))
+            .content(
+                Padding::symmetric(20.0, 16.0).content(
+                    Text::new(label)
+                        .font_size(14.0)
+                        .line_height(20.0)
+                        .weight(600),
+                ),
+            )
+            .width(360.0)
     }
 }
 
@@ -49,5 +57,5 @@ impl App for BorderExample {
 }
 
 fn main() -> Result<(), ViewKitError> {
-    viewkit::run::<BorderExample>()
+    run::<BorderExample>()
 }
