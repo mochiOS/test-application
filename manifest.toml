@@ -1,0 +1,21 @@
+format = 1
+
+[package]
+id = "org.mochios.viewkit-test"
+name = "ViewKit Test"
+version = "0.1.0"
+revision = 1
+vendor = "mochiOS"
+kind = "application"
+architecture = "x86_64"
+abi = "mochios-1"
+
+[[binary]]
+path = "/applications/test.app/entry.elf"
+kind = "application"
+requires = [
+    "fs.read.all",
+    "ipc.client",
+    "ipc.server",
+    "window.create",
+]
