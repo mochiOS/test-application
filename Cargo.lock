@@ -2359,3 +2359,7 @@ version = "1.99.0"
 [[patch.unused]]
 name = "rustc-std-workspace-std"
 version = "1.99.0"
+
+[[patch.unused]]
+name = "mboot-protocol"
+version = "0.1.0"
