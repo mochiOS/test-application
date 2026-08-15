@@ -764,7 +764,6 @@ dependencies = [
 [[package]]
 name = "mochios-viewkit-gpu-protocol"
 version = "0.1.0"
-source = "git+https://github.com/mochiOS/syscalls#2911fd97b9f9e384835093036b1a7ae2da0908cc"
 
 [[package]]
 name = "moxcms"
@@ -2345,6 +2344,10 @@ dependencies = [
 ]
 
 [[patch.unused]]
+name = "mboot-protocol"
+version = "0.1.0"
+
+[[patch.unused]]
 name = "libc"
 version = "0.2.185"
 
@@ -2359,7 +2362,3 @@ version = "1.99.0"
 [[patch.unused]]
 name = "rustc-std-workspace-std"
 version = "1.99.0"
-
-[[patch.unused]]
-name = "mboot-protocol"
-version = "0.1.0"
