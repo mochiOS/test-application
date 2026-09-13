@@ -7,7 +7,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-viewkit = "1.0.1"
+viewkit = "2.0.0"
 
 [[bin]]
 name = "test_app"
