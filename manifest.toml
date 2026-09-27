@@ -11,6 +11,10 @@ kind = "application"
 architecture = "x86_64"
 abi = "mochios-1"
 
+[application]
+entry = "entry.elf"
+description = "ViewKit rendering test application for mochiOS"
+
 [[binary]]
 path = "/applications/test.app/entry.elf"
 kind = "application"
