@@ -35,7 +35,7 @@ impl App for BorderExample {
 
     fn body(&self, _context: &ViewContext) -> Box<dyn View + 'static> {
         let send_notification = Button::new("Send Notification")
-            .style(ButtonStyle::Accent)
+            .style(ButtonStyle::Standard)
             .on_click(move || {
                 if let Err(error) =
                     UserNotification::new("org.mochios.viewkit-test", "Test Notification")
