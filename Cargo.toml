@@ -7,6 +7,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
+appkit = { package = "mochios-appkit", path = "../../tools/devkit/crates/appkit" }
 viewkit = "2.0.0"
 
 [[bin]]

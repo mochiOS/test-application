@@ -1,3 +1,4 @@
+use appkit::UserNotification;
 use viewkit::prelude::*;
 
 struct BorderExample;
@@ -33,6 +34,18 @@ impl App for BorderExample {
     }
 
     fn body(&self, _context: &ViewContext) -> Box<dyn View + 'static> {
+        let send_notification = Button::new("Send Notification")
+            .style(ButtonStyle::Accent)
+            .on_click(move || {
+                if let Err(error) =
+                    UserNotification::new("org.mochios.viewkit-test", "Test Notification")
+                        .body("This notification was sent from Test.app through AppKit.")
+                        .deliver()
+                {
+                    eprintln!("failed to send test notification: {error}");
+                }
+            });
+
         Box::new(
             VStack::new()
                 .gap(StackGap::Large)
@@ -51,7 +64,8 @@ impl App for BorderExample {
                     "Accent — 2px",
                     BorderStyle::custom(Color::from_rgb_hex(0x5f6fff), 2.0),
                 ))
-                .child(Self::card("No border", BorderStyle::None)),
+                .child(Self::card("No border", BorderStyle::None))
+                .child(send_notification),
         )
     }
 }
