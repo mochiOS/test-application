@@ -1,4 +1,4 @@
-use appkit::UserNotification;
+use appcore::UserNotification;
 use viewkit::prelude::*;
 
 struct BorderExample;
@@ -39,7 +39,7 @@ impl App for BorderExample {
             .on_click(move || {
                 if let Err(error) =
                     UserNotification::new("org.mochios.viewkit-test", "Test Notification")
-                        .body("This notification was sent from Test.app through AppKit.")
+                        .body("This notification was sent from Test.app through AppCore.")
                         .deliver()
                 {
                     eprintln!("failed to send test notification: {error}");

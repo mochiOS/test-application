@@ -958,7 +958,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "mochios-appkit"
+name = "mochios-appcore"
 version = "0.1.0"
 dependencies = [
  "mochi-user-platform",
@@ -2067,7 +2067,7 @@ dependencies = [
 name = "test-app"
 version = "0.1.0"
 dependencies = [
- "mochios-appkit",
+ "mochios-appcore",
  "viewkit",
 ]
 
