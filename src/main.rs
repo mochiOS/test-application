@@ -1,4 +1,4 @@
-use appcore::UserNotification;
+use appcore::{document, UserNotification};
 use viewkit::prelude::*;
 
 struct BorderExample;
@@ -71,5 +71,14 @@ impl App for BorderExample {
 }
 
 fn main() -> Result<(), ViewKitError> {
+    if let Some(path) = std::env::args().nth(1) {
+        match document::open(&path, "image/png", document::AssociationRoles::VIEW) {
+            Ok(_) => return Ok(()),
+            Err(error) => {
+                eprintln!("Test.app: could not open {path}: {error}");
+                std::process::exit(1);
+            }
+        }
+    }
     run::<BorderExample>()
 }
