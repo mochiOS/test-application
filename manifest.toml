@@ -24,3 +24,27 @@ requires = [
     "ipc.server",
     "window.create",
 ]
+
+[[application.control_center_items]]
+id = "example-1"
+title = "Example Status"
+symbol = "info"
+action = "show-card"
+
+[[application.control_center_items]]
+id = "example-2"
+title = "Example Notifications"
+symbol = "bell"
+action = "show-card"
+
+[[application.control_center_items]]
+id = "example-3"
+title = "Example Session"
+symbol = "lock"
+action = "show-card"
+
+[[application.control_center_items]]
+id = "example-4"
+title = "Example Network"
+symbol = "network"
+action = "show-card"
