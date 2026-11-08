@@ -22,6 +22,7 @@ requires = [
     "fs.read.all",
     "ipc.client",
     "ipc.server",
+    "notification.send",
     "window.create",
 ]
 
